@@ -1,0 +1,166 @@
+$mainColor: #f54d4e;
+
+@mixin flexCenter { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body,html {
+    margin: 0px;
+    height: 100%;
+    direction: rtl ;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.tashirly-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    height: 83vh;
+    button {
+        padding:20px;
+        font-size:14pt;
+        width: 200px;
+        border-radius: 20px;
+        box-shadow: 4px 2px 9px 1px #8080806c;
+        border: none;
+        cursor: pointer;
+    }
+    .circle-outer {
+        z-index: -2;
+        border-radius: 100%;
+        background-color: #f54d4e;
+        opacity: 0.3;
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        animation: breathingRandom 1s;
+        transform: translateY(0px);
+        animation-iteration-count: infinite;
+        margin: 0 auto;
+    }
+    .circle {
+        margin: 0 auto;
+        z-index: -1;
+        border-radius: 100%;
+        background-color: #fdf1b5;
+        width: 700px;
+        height: 90vh;
+        position: absolute;
+        animation: breathing 5s;
+        transform: translateY(0px);
+        animation-iteration-count: infinite;
+        &:not(.red) {
+            right: -25vw;
+        }
+        
+    }
+    .circle.red {
+        width: 20vw;
+        height: 20vw;
+        background: rgb(2,0,36);
+        background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(245,77,78,0.7693452380952381) 0%, rgba(233,233,233,1) 98%);
+        left: -10vw;
+        animation: breathing 3s;
+        transform: translateY(0px);
+        animation-iteration-count: infinite;
+        &.big {
+            margin-top: 800px;
+            width: 40vw;
+            height: 40vw;
+        }
+    }
+
+    .logo {
+        width: 13vh;
+        margin-bottom: 10px;
+    }
+}
+header.tashirly-header {
+    @include flexCenter();
+    height: 7vh;
+    background-color: $mainColor;
+    font-size: 20pt;
+    letter-spacing: 3px;
+}
+
+footer.tashirly-footer {
+    background-color: $mainColor;
+    height: 10vh;
+    @include flexCenter();
+    font-size: 20pt;
+}
+
+#carouselExampleIndicators {
+    border-radius: 5px;
+}
+
+.carousel-indicators {
+    margin-right: 0% !important;
+}
+
+  
+@keyframes breathing {
+    0% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  
+    25% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    60% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  
+    100% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+
+  @keyframes breathingRandom {
+    0% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  
+    25% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    60% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  
+    100% {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+      .circle, .circle-outer {
+          height: 350px !important;
+          width: 350px !important; 
+
+      }
+  }
